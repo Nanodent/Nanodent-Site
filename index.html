@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Нанодент – Начало</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 10rem 6% 6rem 7%;
+      position: relative; z-index: 2;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); font-weight: 500; margin-bottom: 1.4rem;
+      opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 5.5vw, 5.5rem);
+      font-weight: 300; line-height: 1.08; color: var(--charcoal);
+      margin-bottom: 1.8rem;
+      opacity: 0; animation: fadeUp 0.8s 0.35s forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--sage-dark); }
+    .hero-desc {
+      font-size: 1rem; font-weight: 300; line-height: 1.75; color: var(--warm-gray);
+      max-width: 400px; margin-bottom: 2.8rem;
+      opacity: 0; animation: fadeUp 0.8s 0.5s forwards;
+    }
+    .hero-cta {
+      opacity: 0; animation: fadeUp 0.8s 0.65s forwards;
+      display: inline-block;
+    }
+    .hero-right {
+      position: relative; background: var(--cream); overflow: hidden;
+    }
+    .hero-right .photo-placeholder { width: 100%; height: 100%; }
+    .hero-decor {
+      position: absolute; bottom: 6%; right: 5%;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 8rem; font-weight: 300;
+      color: rgba(194,164,90,0.07); line-height: 1; pointer-events: none;
+    }
+
+    /* QUICK LINKS */
+    .quick-links {
+      background: var(--charcoal);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .ql-item {
+      padding: 2.5rem 2rem;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      display: flex; flex-direction: column; gap: 0.7rem;
+      text-decoration: none;
+      transition: background 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .ql-item:last-child { border-right: none; }
+    .ql-item::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 2px; background: var(--gold); transition: width 0.4s;
+    }
+    .ql-item:hover { background: rgba(194,164,90,0.08); }
+    .ql-item:hover::after { width: 100%; }
+    .ql-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 300; color: rgba(194,164,90,0.25);
+    }
+    .ql-name {
+      font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase;
+      font-weight: 500; color: var(--ivory);
+    }
+    .ql-arrow { font-size: 1rem; color: var(--gold); margin-top: auto; }
+
+    /* ABOUT STRIP */
+    .about-strip {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      background: var(--ivory);
+    }
+    .about-text {
+      padding: 6rem 7%;
+      display: flex; flex-direction: column; justify-content: center; gap: 1.5rem;
+    }
+    .about-text p {
+      font-size: 0.95rem; font-weight: 300; line-height: 1.85; color: var(--warm-gray);
+    }
+    .about-image {
+      aspect-ratio: auto;
+      min-height: 400px;
+    }
+    .about-image .photo-placeholder { width: 100%; height: 100%; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .quick-links { grid-template-columns: 1fr 1fr; }
+      .ql-item:nth-child(2) { border-right: none; }
+      .ql-item:nth-child(3) { border-top: 1px solid rgba(255,255,255,0.06); }
+      .ql-item:nth-child(4) { border-top: 1px solid rgba(255,255,255,0.06); }
+      .about-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html"><span>Нано</span>дент</a>
+  <ul>
+    <li><a href="index.html" class="active">Начало</a></li>
+    <li><a href="uslugi.html">Услуги</a></li>
+    <li><a href="lekari.html">Лекари</a></li>
+    <li><a href="galeriya.html">Галерия</a></li>
+    <li><a href="kontakti.html">Контакти</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <span class="hero-eyebrow">Дентална Клиника · Пловдив</span>
+    <h1 class="hero-title">
+      Усмивката,<br />
+      която <em>заслужавате</em>
+    </h1>
+    <p class="hero-desc">
+      В Нанодент съчетаваме съвременни технологии с топла и персонална грижа за всеки пациент. Вашето здраве и увереност са нашата мисия.
+    </p>
+    <div class="hero-cta">
+      <a class="btn" href="kontakti.html">
+        Запишете час
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <!-- Заменете с: <img src="images/clinic.jpg" alt="Нанодент"> -->
+    <div class="photo-placeholder">
+      <div class="photo-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c2a45a" stroke-width="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <circle cx="8.5" cy="8.5" r="1.5"/>
+          <path d="M21 15l-5-5L5 21"/>
+        </svg>
+      </div>
+      <p>Снимка на клиниката</p>
+    </div>
+    <div class="hero-decor">✦</div>
+  </div>
+</div>
+
+<!-- QUICK LINKS -->
+<div class="quick-links">
+  <a class="ql-item" href="uslugi.html">
+    <div class="ql-num">01</div>
+    <div class="ql-name">Нашите услуги</div>
+    <div class="ql-arrow">→</div>
+  </a>
+  <a class="ql-item" href="lekari.html">
+    <div class="ql-num">02</div>
+    <div class="ql-name">Нашите лекари</div>
+    <div class="ql-arrow">→</div>
+  </a>
+  <a class="ql-item" href="galeriya.html">
+    <div class="ql-num">03</div>
+    <div class="ql-name">Галерия</div>
+    <div class="ql-arrow">→</div>
+  </a>
+  <a class="ql-item" href="kontakti.html">
+    <div class="ql-num">04</div>
+    <div class="ql-name">Контакти</div>
+    <div class="ql-arrow">→</div>
+  </a>
+</div>
+
+<!-- ABOUT STRIP -->
+<div class="about-strip">
+  <div class="about-text">
+    <span class="section-tag reveal">За нас</span>
+    <h2 class="section-title reveal">Клиника с <em>грижа</em><br />и призвание</h2>
+    <p class="reveal">
+      Нанодент е дентална клиника в сърцето на Пловдив, основана с едно желание – да направи денталната медицина достъпна, комфортна и ефективна за всеки пациент.
+    </p>
+    <p class="reveal">
+      Нашият екип от двама специалисти работи с най-съвременна апаратура и следва последните тенденции в световната стоматология.
+    </p>
+    <a class="btn reveal" href="lekari.html" style="margin-top:0.5rem; display:inline-flex; align-items:center; gap:0.8rem;">
+      Запознайте се с лекарите
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+  <div class="about-image">
+    <!-- Заменете с: <img src="images/about.jpg" alt="Кабинет" style="width:100%;height:100%;object-fit:cover"> -->
+    <div class="photo-placeholder" style="width:100%;height:100%;min-height:400px;">
+      <div class="photo-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c2a45a" stroke-width="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <circle cx="8.5" cy="8.5" r="1.5"/>
+          <path d="M21 15l-5-5L5 21"/>
+        </svg>
+      </div>
+      <p>Снимка на кабинета</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a class="footer-logo" href="index.html"><span>Нано</span>дент</a>
+  <p>© 2025 Нанодент – Всички права запазени</p>
+  <p>Пловдив, България</p>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

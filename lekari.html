@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Нанодент – Лекари</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .doctors-section { background: var(--ivory); }
+
+    /* FULL DOCTOR CARDS */
+    .doctor-block {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 0;
+      margin-bottom: 4px;
+      background: rgba(194,164,90,0.1);
+    }
+    .doctor-block:nth-child(even) { direction: rtl; }
+    .doctor-block:nth-child(even) > * { direction: ltr; }
+
+    .doctor-photo-wrap {
+      aspect-ratio: 3/4;
+      position: relative;
+    }
+    .doctor-photo-wrap .photo-placeholder { width: 100%; height: 100%; }
+    .doctor-photo-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      position: absolute; inset: 0;
+    }
+
+    .doctor-info {
+      background: var(--ivory);
+      padding: 4rem 4rem;
+      display: flex; flex-direction: column; justify-content: center; gap: 1.2rem;
+    }
+
+    .doctor-tag {
+      font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); font-weight: 500;
+    }
+
+    .doctor-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      font-weight: 300; color: var(--charcoal); line-height: 1.15;
+    }
+
+    .doctor-spec {
+      font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--warm-gray); font-weight: 400;
+    }
+
+    .divider {
+      width: 40px; height: 1px; background: var(--gold); opacity: 0.5;
+    }
+
+    .doctor-bio {
+      font-size: 0.92rem; font-weight: 300; line-height: 1.9; color: var(--warm-gray);
+    }
+
+    .doctor-contact-row {
+      display: flex; align-items: center; gap: 0.7rem;
+      font-size: 1.1rem; font-weight: 400;
+      color: var(--sage-dark); text-decoration: none;
+      transition: color 0.25s; margin-top: 0.5rem;
+    }
+    .doctor-contact-row:hover { color: var(--gold); }
+    .doctor-contact-row svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* PHOTO SLOTS */
+    .photos-hint {
+      background: var(--cream);
+      padding: 3rem 7%;
+      display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+    }
+    .photos-hint p {
+      font-size: 0.83rem; font-weight: 300; color: var(--warm-gray);
+      line-height: 1.7; max-width: 600px;
+    }
+    .photos-hint code {
+      font-size: 0.78rem; background: rgba(194,164,90,0.12);
+      padding: 0.1rem 0.4rem; color: var(--charcoal);
+      border-radius: 2px; font-family: monospace;
+    }
+
+    @media (max-width: 900px) {
+      .doctor-block { grid-template-columns: 1fr; direction: ltr !important; }
+      .doctor-block:nth-child(even) { direction: ltr; }
+      .doctor-photo-wrap { aspect-ratio: 16/9; }
+      .doctor-info { padding: 2.5rem 5%; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html"><span>Нано</span>дент</a>
+  <ul>
+    <li><a href="index.html">Начало</a></li>
+    <li><a href="uslugi.html">Услуги</a></li>
+    <li><a href="lekari.html" class="active">Лекари</a></li>
+    <li><a href="galeriya.html">Галерия</a></li>
+    <li><a href="kontakti.html">Контакти</a></li>
+  </ul>
+</nav>
+
+<div class="page-header anim anim-1" data-title="Лекари">
+  <span class="section-tag">Нашият екип</span>
+  <h1>Запознайте се с <em>лекарите</em></h1>
+  <p class="sub">Двама опитни специалисти, обединени от любовта към денталната медицина и грижата за всеки пациент.</p>
+</div>
+
+<section class="doctors-section">
+
+  <!-- Д-р Щерев -->
+  <div class="doctor-block reveal">
+    <div class="doctor-photo-wrap">
+      <!--
+        За да добавите снимка, заменете съдържанието на този div с:
+        <img src="images/haralambi.jpg" alt="Д-р Щерев" />
+      -->
+      <div class="photo-placeholder" style="height:100%; min-height:480px;">
+        <div class="photo-icon" style="border-color:rgba(138,170,142,0.5);">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8aaa8e" stroke-width="1.5">
+            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+        </div>
+        <p>Снимка на лекаря</p>
+      </div>
+    </div>
+    <div class="doctor-info">
+      <div class="doctor-tag">Зъболекар</div>
+      <h2 class="doctor-name">Д-р Хараламби<br />Щерев</h2>
+      <div class="doctor-spec">Общопрактикуващ дентален лекар</div>
+      <div class="divider"></div>
+      <p class="doctor-bio">
+        С дългогодишен клиничен опит и задълбочени познания в областта на общата стоматология, Д-р Щерев е истинска опора на нашия екип. Подхожда към всеки пациент с внимание и търпение, като осигурява комфортно и ефективно лечение.
+      </p>
+      <p class="doctor-bio">
+        Специализира в лечение на кариес, протетика, хирургични екстракции и ендодонтско лечение. Редовно участва в специализирани курсове и конференции за поддържане на най-високо ниво на компетентност.
+      </p>
+      <a class="doctor-contact-row" href="tel:0888530987">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.4 1.18 2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.9a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        0888 530 987
+      </a>
+    </div>
+  </div>
+
+  <!-- Д-р Бояджиева-Щерева -->
+  <div class="doctor-block reveal">
+    <div class="doctor-photo-wrap">
+      <!--
+        За да добавите снимка, заменете съдържанието на този div с:
+        <img src="images/svetla.jpg" alt="Д-р Бояджиева-Щерева" />
+      -->
+      <div class="photo-placeholder" style="height:100%; min-height:480px;">
+        <div class="photo-icon" style="border-color:rgba(194,164,90,0.5);">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c2a45a" stroke-width="1.5">
+            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+        </div>
+        <p>Снимка на лекаря</p>
+      </div>
+    </div>
+    <div class="doctor-info">
+      <div class="doctor-tag">Зъболекар</div>
+      <h2 class="doctor-name">Д-р Светла<br />Бояджиева‑Щерева</h2>
+      <div class="doctor-spec">Общопрактикуващ дентален лекар</div>
+      <div class="divider"></div>
+      <p class="doctor-bio">
+        Д-р Бояджиева‑Щерева се отличава с деликатен и внимателен подход към пациентите. Известна с умението си да работи дори с тревожни и чувствителни пациенти, тя превръща всяко посещение в клиниката в спокоен и приятен опит.
+      </p>
+      <p class="doctor-bio">
+        Специализира в козметична стоматология, избелване на зъби и детска дентална медицина. Непрекъснато се усъвършенства в областта на естетичната и превантивна стоматология.
+      </p>
+      <a class="doctor-contact-row" href="tel:0889410402">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.4 1.18 2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.9a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        0889 410 402
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<div class="photos-hint">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c2a45a" stroke-width="1.5" style="flex-shrink:0">
+    <circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>
+  </svg>
+  <p>
+    За да добавите снимки на лекарите, запишете ги в папка <code>images/</code> и заменете коментираните редове с <code>&lt;img src="images/haralambi.jpg"&gt;</code> и <code>&lt;img src="images/svetla.jpg"&gt;</code>.
+  </p>
+</div>
+
+<footer>
+  <a class="footer-logo" href="index.html"><span>Нано</span>дент</a>
+  <p>© 2025 Нанодент – Всички права запазени</p>
+  <p>Пловдив, България</p>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

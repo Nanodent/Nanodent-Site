@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Нанодент – Контакти</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* CONTACT GRID */
+    .contact-section { background: var(--ivory); }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    /* LEFT: INFO */
+    .contact-info { display: flex; flex-direction: column; gap: 3rem; }
+
+    .contact-block h3 {
+      font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); font-weight: 500; margin-bottom: 0.8rem;
+    }
+    .contact-block .value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 400;
+      color: var(--charcoal); line-height: 1.55;
+    }
+    .contact-block a.value {
+      text-decoration: none; display: block;
+      transition: color 0.25s;
+    }
+    .contact-block a.value:hover { color: var(--gold); }
+
+    .doctor-row {
+      display: flex; align-items: center; gap: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    .doctor-row .dr-name {
+      font-size: 0.8rem; font-weight: 400; color: var(--warm-gray);
+      letter-spacing: 0.04em; min-width: 180px;
+    }
+    .doctor-row a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; color: var(--charcoal);
+      text-decoration: none; transition: color 0.25s;
+    }
+    .doctor-row a:hover { color: var(--gold); }
+
+    .hours-table { display: flex; flex-direction: column; gap: 0.4rem; }
+    .hours-row { display: flex; justify-content: space-between; gap: 1rem; }
+    .hours-row .day {
+      font-size: 0.82rem; font-weight: 300; color: var(--warm-gray);
+    }
+    .hours-row .time {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; color: var(--charcoal);
+    }
+    .hours-divider {
+      height: 1px; background: rgba(194,164,90,0.15); margin: 0.3rem 0;
+    }
+
+    /* RIGHT: MAP */
+    .map-container { display: flex; flex-direction: column; gap: 1rem; }
+
+    .map-frame {
+      width: 100%; aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #ddd8ce 0%, #c8c2b6 100%);
+      position: relative; overflow: hidden;
+    }
+
+    /* Вграден Google Maps iframe */
+    .map-frame iframe {
+      width: 100%; height: 100%;
+      border: none; position: absolute; inset: 0;
+    }
+
+    /* Placeholder ако няма iframe */
+    .map-placeholder-inner {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 1rem;
+    }
+    .map-pin {
+      width: 50px; height: 50px;
+      background: var(--gold);
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .map-pin svg { transform: rotate(45deg); }
+    .map-placeholder-inner h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-weight: 400; color: var(--charcoal);
+      text-align: center;
+    }
+    .map-placeholder-inner small {
+      font-size: 0.75rem; font-weight: 300;
+      letter-spacing: 0.1em; color: var(--warm-gray);
+    }
+
+    .map-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+      font-weight: 500; color: var(--sage-dark); text-decoration: none;
+      transition: color 0.25s;
+    }
+    .map-link:hover { color: var(--gold); }
+    .map-link svg { width: 14px; height: 14px; }
+
+    /* APPOINTMENT STRIP */
+    .appointment-strip {
+      background: var(--charcoal);
+      padding: 5rem 7%;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 3rem; flex-wrap: wrap;
+    }
+    .appointment-strip h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 300; color: var(--ivory); line-height: 1.2;
+    }
+    .appointment-strip h2 em { font-style: italic; color: var(--gold); }
+    .appointment-strip p {
+      margin-top: 0.7rem; font-size: 0.88rem; font-weight: 300;
+      color: rgba(245,240,232,0.5); line-height: 1.7;
+    }
+
+    .btn-light {
+      display: inline-flex; align-items: center; gap: 0.8rem;
+      background: var(--gold); color: var(--charcoal);
+      text-decoration: none; padding: 1rem 2.2rem;
+      font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
+      font-weight: 500; transition: background 0.3s, gap 0.3s;
+      white-space: nowrap;
+    }
+    .btn-light:hover { background: var(--ivory); gap: 1.2rem; }
+    .btn-light svg { width: 14px; height: 14px; transition: transform 0.3s; }
+    .btn-light:hover svg { transform: translateX(4px); }
+
+    @media (max-width: 900px) {
+      .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .appointment-strip { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html"><span>Нано</span>дент</a>
+  <ul>
+    <li><a href="index.html">Начало</a></li>
+    <li><a href="uslugi.html">Услуги</a></li>
+    <li><a href="lekari.html">Лекари</a></li>
+    <li><a href="galeriya.html">Галерия</a></li>
+    <li><a href="kontakti.html" class="active">Контакти</a></li>
+  </ul>
+</nav>
+
+<div class="page-header anim anim-1" data-title="Контакти">
+  <span class="section-tag">Намерете ни</span>
+  <h1>Контакти &amp;<br /><em>местоположение</em></h1>
+  <p class="sub">Намираме се в центъра на Пловдив. Свържете се с нас и запишете своя час.</p>
+</div>
+
+<section class="contact-section">
+  <div class="contact-layout">
+
+    <!-- LEFT: CONTACT INFO -->
+    <div class="contact-info">
+
+      <div class="contact-block reveal">
+        <h3>Адрес</h3>
+        <div class="value">ул. „Кирил Христов" № 8<br />Пловдив, България</div>
+      </div>
+
+      <div class="contact-block reveal">
+        <h3>Телефони</h3>
+        <div class="doctor-row">
+          <span class="dr-name">Д-р Щерев</span>
+          <a href="tel:0888530987">0888 530 987</a>
+        </div>
+        <div class="doctor-row">
+          <span class="dr-name">Д-р Бояджиева‑Щерева</span>
+          <a href="tel:0889410402">0889 410 402</a>
+        </div>
+      </div>
+
+      <div class="contact-block reveal">
+        <h3>Работно време</h3>
+        <div class="hours-table">
+          <div class="hours-row">
+            <span class="day">Понеделник – Петък</span>
+            <span class="time">09:00 – 18:00</span>
+          </div>
+          <div class="hours-divider"></div>
+          <div class="hours-row">
+            <span class="day">Събота</span>
+            <span class="time">По договаряне</span>
+          </div>
+          <div class="hours-divider"></div>
+          <div class="hours-row">
+            <span class="day">Неделя</span>
+            <span class="time">Почивен ден</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: MAP -->
+    <div class="map-container reveal">
+      <div class="map-frame">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.6443165205374!2d24.742360876518283!3d42.13649714919579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd1b39a797a45%3A0x5a5013ae9f8f1469!2z0KbQtdC90YLRitGA0KDQsNC50L7QvSDQptC10L3RgtGA0LDQu9C10L0sINGD0LsuIOKAntCa0LjRgNC40Lsg0KXRgNC40YHRgtC-0LLigJwgOCwgNDAwMCDQn9C70L7QstC00LjQsg!5e0!3m2!1sbg!2sbg!4v1777921034286!5m2!1sbg!2sbg" style="width:100%;height:100%;border: 5px solid #2c2c2c;position:absolute;inset:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <a class="map-link" href="https://maps.google.com/?q=ул.+Кирил+Христов+8,+Пловдив" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+        </svg>
+        Отвори в Google Maps
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- APPOINTMENT STRIP -->
+<div class="appointment-strip">
+  <div>
+    <h2>Запишете своя час <em>днес</em></h2>
+    <p>Обадете се директно на единия от нашите лекари или ни потърсете на адреса.</p>
+  </div>
+  <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+    <a class="btn-light" href="tel:0888530987">
+      Д-р Щерев
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.4 1.18 2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.9a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+      </svg>
+    </a>
+    <a class="btn-light" href="tel:0889410402">
+      Д-р Бояджиева‑Щерева
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.4 1.18 2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.9a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+      </svg>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <a class="footer-logo" href="index.html"><span>Нано</span>дент</a>
+  <p>© 2025 Нанодент – Всички права запазени</p>
+  <p>Пловдив, България</p>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
