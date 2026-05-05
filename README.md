@@ -1,8 +1,8 @@
-# Нанодент – Дентална Клиника
+# Nanodent – Dental Clinic
 
-Сайт на дентална клиника **Нанодент**, Пловдив. Изграден с [Jekyll](https://jekyllrb.com/) и публикуван чрез GitHub Pages.
+Website of dental clinic **Nanodent**, Plovdiv, Bulgaria. Built with [Jekyll](https://jekyllrb.com/) and deployed via GitHub Pages.
 
-## Локално стартиране
+## Running Locally
 
 ```bash
 gem install bundler
@@ -10,4 +10,4 @@ bundle install
 bundle exec jekyll serve
 ```
 
-Отворете [http://localhost:4000](http://localhost:4000)
+Open [http://localhost:4000](http://localhost:4000)

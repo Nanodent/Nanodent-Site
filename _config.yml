@@ -35,7 +35,7 @@ defaults:
 # Site info
 clinic:
   name: Нанодент
-  address: "ул. „Кирил Христов" № 8, Пловдив"
+  address: 'ул. „Кирил Христов" № 8, Пловдив'
   doctors:
     - name: "Д-р Хараламби Щерев"
       phone: "0888530987"
