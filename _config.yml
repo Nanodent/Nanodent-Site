@@ -1,7 +1,7 @@
 title: Нанодент
 description: Дентална клиника в Пловдив
-baseurl: ""
-url: ""
+baseurl: "/Nanodent-Site"
+url: "https://nanodent.github.io"
 
 lang: bg
 timezone: Europe/Sofia

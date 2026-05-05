@@ -16,6 +16,7 @@
   {% include footer.html %}
 
   <script>
+    document.body.classList.add('js-ready');
     const obs = new IntersectionObserver(entries => {
       entries.forEach((e, i) => {
         if (e.isIntersecting) {
