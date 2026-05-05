@@ -1,91 +1,9 @@
-<!DOCTYPE html>
-<html lang="bg">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Нанодент – Услуги</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    /* SERVICES GRID */
-    .services-section { background: var(--ivory); }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px;
-      background: rgba(194,164,90,0.15);
-      margin-top: 3.5rem;
-    }
-
-    .service-card {
-      background: var(--ivory);
-      padding: 2.8rem 2.2rem;
-      transition: background 0.3s;
-      position: relative; overflow: hidden;
-    }
-    .service-card::after {
-      content: ''; position: absolute; bottom: 0; left: 0;
-      width: 0; height: 2px; background: var(--gold); transition: width 0.4s;
-    }
-    .service-card:hover { background: var(--cream); }
-    .service-card:hover::after { width: 100%; }
-
-    .service-icon {
-      width: 48px; height: 48px;
-      background: rgba(194,164,90,0.1);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1.4rem;
-    }
-
-    .service-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem; font-weight: 300;
-      color: rgba(194,164,90,0.2); line-height: 1;
-      margin-bottom: 0.8rem;
-    }
-    .service-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem; font-weight: 600;
-      color: var(--charcoal); margin-bottom: 0.7rem;
-    }
-    .service-desc {
-      font-size: 0.88rem; font-weight: 300;
-      line-height: 1.75; color: var(--warm-gray);
-    }
-
-    /* PRICE NOTE */
-    .price-note {
-      background: var(--cream);
-      padding: 4rem 7%;
-      display: flex; align-items: center; justify-content: space-between; gap: 2rem;
-      flex-wrap: wrap;
-    }
-    .price-note p {
-      font-size: 0.9rem; font-weight: 300; color: var(--warm-gray);
-      max-width: 500px; line-height: 1.8;
-    }
-
-    @media (max-width: 900px) {
-      .services-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 600px) {
-      .services-grid { grid-template-columns: 1fr; }
-    }
-  </style>
-</head>
-<body>
-
-<nav>
-  <a class="nav-logo" href="index.html"><span>Нано</span>дент</a>
-  <ul>
-    <li><a href="index.html">Начало</a></li>
-    <li><a href="uslugi.html" class="active">Услуги</a></li>
-    <li><a href="lekari.html">Лекари</a></li>
-    <li><a href="galeriya.html">Галерия</a></li>
-    <li><a href="kontakti.html">Контакти</a></li>
-  </ul>
-</nav>
+---
+layout: default
+title: Услуги
+permalink: /uslugi/
+description: Пълен спектър от дентални услуги в Нанодент – от профилактика до козметична стоматология.
+---
 
 <div class="page-header anim anim-1" data-title="Услуги">
   <span class="section-tag">Какво предлагаме</span>
@@ -93,7 +11,7 @@
   <p class="sub">Предлагаме пълен спектър от дентални услуги – от профилактика до козметична стоматология, с индивидуален подход за всеки пациент.</p>
 </div>
 
-<section class="services-section">
+<section>
   <div class="services-grid">
 
     <div class="service-card reveal">
@@ -158,28 +76,8 @@
     <span class="section-tag">Информация</span>
     <p>Цените варират в зависимост от сложността на лечението. Запишете се за безплатен първоначален преглед и ние ще изготвим индивидуален план на лечение за вас.</p>
   </div>
-  <a class="btn" href="kontakti.html">
+  <a class="btn" href="{{ '/kontakti/' | relative_url }}">
     Запишете час
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
   </a>
 </div>
-
-<footer>
-  <a class="footer-logo" href="index.html"><span>Нано</span>дент</a>
-  <p>© 2025 Нанодент – Всички права запазени</p>
-  <p>Пловдив, България</p>
-</footer>
-
-<script>
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 60);
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
-</body>
-</html>

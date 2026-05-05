@@ -1,0 +1,10 @@
+<nav{% if page.nav_dark %} class="dark"{% endif %}>
+  <a class="nav-logo" href="{{ '/' | relative_url }}"><span>Нано</span>дент</a>
+  <ul>
+    <li><a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active"{% endif %}>Начало</a></li>
+    <li><a href="{{ '/uslugi/' | relative_url }}"{% if page.url contains 'uslugi' %} class="active"{% endif %}>Услуги</a></li>
+    <li><a href="{{ '/lekari/' | relative_url }}"{% if page.url contains 'lekari' %} class="active"{% endif %}>Лекари</a></li>
+    <li><a href="{{ '/galeriya/' | relative_url }}"{% if page.url contains 'galeriya' %} class="active"{% endif %}>Галерия</a></li>
+    <li><a href="{{ '/kontakti/' | relative_url }}"{% if page.url contains 'kontakti' %} class="active"{% endif %}>Контакти</a></li>
+  </ul>
+</nav>

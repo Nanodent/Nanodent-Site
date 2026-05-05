@@ -1,0 +1,53 @@
+title: Нанодент
+description: Дентална клиника в Пловдив
+baseurl: ""
+url: ""
+
+lang: bg
+timezone: Europe/Sofia
+
+# Build
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+
+# Site info
+clinic:
+  name: Нанодент
+  address: "ул. „Кирил Христов" № 8, Пловдив"
+  doctors:
+    - name: "Д-р Хараламби Щерев"
+      phone: "0888530987"
+      phone_display: "0888 530 987"
+      specialty: "Общопрактикуващ дентален лекар"
+      photo: "haralambi.jpg"
+    - name: "Д-р Светла Бояджиева‑Щерева"
+      phone: "0889410402"
+      phone_display: "0889 410 402"
+      specialty: "Общопрактикуващ дентален лекар"
+      photo: "svetla.jpg"
+  hours:
+    weekdays: "09:00 – 18:00"
+    saturday: "По договаряне"
+    sunday: "Почивен ден"
